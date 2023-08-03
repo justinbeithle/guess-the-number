@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+        let num = Math.floor(Math.random() * 10) +1;
+        let guess = parseInt(prompt("Guess a number between 1 and 10")); //Parse the user input to an integer
+        let gotIt = false;
+        let numGuesses = 0;
+
+      
+
+        while(!gotIt) //testing truth in falsity
+        {
+            numGuesses++;
+
+            if (isNaN(guess) || guess < 1 || guess > 10) // wanted to have it so user can only guess 1-10
+            {
+                guess = parseInt(prompt("Invalid Input. Please guess a number between 1-10"));
+                continue; //this continues the loop w/o comparing guess with random generated number
+            }
+
+            if (num === guess)
+            {
+                //alert("Got it!");
+                gotIt = true; //break out of loop
+
+            }else //continue, since answer is incorrect
+
+            {  //guess = prompt("you got it wrong, guess again!");
+                if(num > guess) //higher
+                {
+                    guess = parseInt(prompt("guess higher")); //
+                }else //lower
+                {
+                    guess = parseInt(prompt("guess lower"));
+                }
+
+            }
+
+            if(numGuesses > 10 )
+            {
+                prompt("wow you're really bad at this" + " " + "try again!");
+                continue;
+            }
+
+        }
+
+
+
+        alert("Congratulations! You guessed" + " " + numGuesses + " " + "times!");
+        //alert("Sorry!  You guessed " + guess + " and the number was " + num);
+       
+
+	</script>
+</body>
+</html>
